@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor De Audio
+    </title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        #controls {
+            text-align: center;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div id="controls">
+        <h1>Reproductor De Audio</h1>
+        <button id="play">Reproducir</button>
+        <button id="pause">Pausar</button>
+        <button id="stop">Detener</button>
+    </div>
+
+    <script>
+
+        var sound = new Howl({
+            src: ['uploads/musica.mp3'], 
+            volume: 1.0,
+            onend: function() {
+                console.log('Finished playing!');
+            }
+        });
+
+
+        document.getElementById('play').addEventListener('click', function() {
+            sound.play();
+        });
+
+        document.getElementById('pause').addEventListener('click', function() {
+            sound.pause();
+        });
+
+        document.getElementById('stop').addEventListener('click', function() {
+            sound.stop();
+        });
+    </script>
+</body>
+</html>
